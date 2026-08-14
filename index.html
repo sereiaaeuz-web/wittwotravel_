@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wittwo Travel Agent - Explore Banda Neira</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #0f2c3f;
+            --teal: #008080;
+            --aqua: #00a896;
+            --light-blue: #e0f2f1;
+            --text-dark: #1e293b;
+            --bg-light: #f4f7f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: rgba(15, 44, 63, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--aqua);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--aqua);
+        }
+
+        .btn-nav {
+            background-color: var(--aqua);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 600 !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 8% 80px 8%;
+            background: var(--primary-dark);
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--light-blue);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            background: var(--aqua);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--teal);
+        }
+
+        /* Section Layout */
+        .section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        /* Grid System */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Destination List */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border-top: 4px solid var(--aqua);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* Packages */
+        .packages {
+            background-color: var(--light-blue);
+        }
+
+        .price-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--teal);
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--teal);
+            margin: 15px 0;
+        }
+
+        /* Itinerary */
+        .itinerary-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .day-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--teal);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .day-box h4 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary-dark);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .btn-wa {
+            background-color: #25D366;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-wa:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a1f2d;
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">wittw<span>o</span></a>
+        <ul class="nav-links">
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#itinerary">Itinerary</a></li>
+            <li><a href="#contact" class="btn-nav">Book Now</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>EXPLORE BANDA NEIRA</h1>
+        <p>The Hidden Paradise of Maluku</p>
+        <a href="#packages" class="btn-primary">Explore Packages</a>
+    </section>
+
+    <!-- Featured Destinations List -->
+    <section class="section" id="destinations">
+        <h2 class="section-title">Featured Destinations</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Hatta Island</h3>
+                <p>Renowned for its crystal-clear turquoise waters and vibrant marine ecosystems, perfect for world-class snorkeling and diving adventures.</p>
+            </div>
+            <div class="card">
+                <h3>Banda Volcano (Gunung Api)</h3>
+                <p>Summit this active volcano to experience breathtaking, panoramic views overseeing the entire historic Banda archipelago.</p>
+            </div>
+            <div class="card">
+                <h3>Fort Belgica</h3>
+                <p>Step back in time at this iconic 17th-century pentagonal Dutch fortress, overlooking the scenic vistas of Banda Neira Bay.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Packages -->
+    <section class="section packages" id="packages">
+        <h2 class="section-title">Tour Packages</h2>
+        <div class="grid-3">
+            <div class="price-card">
+                <h3>Open Trip</h3>
+                <div class="price">IDR 2,250,000 <span style="font-size:0.85rem; font-weight:normal; color:#666;">/person</span></div>
+                <p>Join a shared group experience offering budget-friendly comfort, guided tours, and standard amenities.</p>
+            </div>
+            <div class="price-card featured">
+                <h3>Private Trip</h3>
+                <div class="price">IDR 3,950,000 <span style="font-size:0.85rem; font-weight:normal; color:#666;">/person</span></div>
+                <p>Tailored schedules, private boat charters, dedicated local guides, and premium personalized service.</p>
+            </div>
+            <div class="price-card">
+                <h3>Family Trip</h3>
+                <div class="price">IDR 3,450,000 <span style="font-size:0.85rem; font-weight:normal; color:#666;">/person</span></div>
+                <p>Specially curated for families, featuring a relaxed pace, comfortable accommodations, and child-friendly activities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D2N Itinerary & Services -->
+    <section class="section" id="itinerary">
+        <h2 class="section-title">3D2N Itinerary & Services</h2>
+        <div class="itinerary-list">
+            <div class="day-box">
+                <h4>Day 1: Arrival & Historic Neira Exploration</h4>
+                <p>Harbor/airport pick-up and check-in. Historical city tour covering Fort Belgica, Rumah Budaya Museum, and sunset views over the Spice Islands.</p>
+            </div>
+            <div class="day-box">
+                <h4>Day 2: Hatta Island & Underwater Excursion</h4>
+                <p>Full-day island hopping excursion to Hatta Island. Enjoy premium snorkeling at the famous Kampung Hatta drop-off and relax along pristine beaches.</p>
+            </div>
+            <div class="day-box">
+                <h4>Day 3: Banda Volcano Trek & Departure</h4>
+                <p>Early morning trekking up Gunung Api Banda or a nutmeg plantation tour. Souvenir shopping followed by departure transfer to harbor/airport.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking -->
+    <section class="section contact" id="contact">
+        <h2 class="section-title">Book Your Journey</h2>
+        <div class="contact-info">
+            <p><strong>Email:</strong> wittwo@gmail.com</p>
+            <p><strong>Phone / WhatsApp:</strong> +62 859-4104-4181</p>
+        </div>
+        <a href="https://wa.me/6285941044181?text=Hello%20Wittwo%20Travel,%20I'm%20interested%20in%20booking%20the%20Banda%20Neira%20Tour%20Package." target="_blank" class="btn-wa">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            Chat on WhatsApp
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Wittwo Travel Agent. All Rights Reserved. Explore | Experience | Enjoy</p>
+    </footer>
+
+</body>
+  </html>
